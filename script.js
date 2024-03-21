@@ -35,6 +35,24 @@ async function getName() {
   return `${first} ${second} (${gender})`;
 }
 
+function setPersonality() {
+  let personality = [5, 5, 5, 5, 5];
+  let randamount = Math.floor(Math.random() * 50) + 50;
+  for (let i = 0; i < randamount; i++) {
+    let r1 = 0;
+    let r2 = 0;
+
+    while (r1 == r2 || personality[r1] == 0 || personality[r2] == 10) {
+      r1 = Math.floor(Math.random() * 5);
+      r2 = Math.floor(Math.random() * 5);  
+    }
+
+    personality[r1] -= 1;
+    personality[r2] += 1;
+  }
+  return personality;
+}
+
 async function generateSim() {
   clearPrevious();
 
@@ -53,6 +71,7 @@ async function generateSim() {
     infoContainer.append(node);
   }
 
+  let personality = setPersonality();
 }
 
 genButton.addEventListener("click", generateSim);
