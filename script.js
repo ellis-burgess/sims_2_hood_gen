@@ -26,6 +26,15 @@ function clearPrevious() {
   document.body.appendChild(simInfo);
 }
 
+async function getName() {
+  const response = await fetch(nameApiUrl);
+  const data = await response.json();
+  let first = (data["results"][0]["name"]["first"]);
+  let second = (data["results"][0]["name"]["last"]);
+  let gender = (data["results"][0]["gender"]);
+  return `${first} ${second} (${gender})`;
+}
+
 async function generateSim() {
   clearPrevious();
 
@@ -44,15 +53,6 @@ async function generateSim() {
     infoContainer.append(node);
   }
 
-}
-
-async function getName() {
-  const response = await fetch(nameApiUrl);
-  const data = await response.json();
-  let first = (data["results"][0]["name"]["first"]);
-  let second = (data["results"][0]["name"]["last"]);
-  let gender = (data["results"][0]["gender"]);
-  return `${first} ${second} (${gender})`;
 }
 
 genButton.addEventListener("click", generateSim);
