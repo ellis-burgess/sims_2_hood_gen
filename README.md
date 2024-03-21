@@ -5,7 +5,7 @@ A website for Sims 2 gamers to generate households for a new neighbourhood.
  - [ ] Be able to generate a single adult sim
    - [x] Randomise skin, eye, and hair colour
    - [x] Randomise name, gender, and weight
-   - [ ] Randomise personality (50 points spent across 5 traits, max 10 per trait)
+   - [x] Randomise personality (50 points spent across 5 traits, max 10 per trait)
    - [x] ~Determine zodiac from personality~
      - This is a more complex task than initially thought, as the game's handling of a personality equally similar to two zodiac signs is unclear
    - [x] ~Determine aspiration from zodiac~

@@ -2,8 +2,9 @@ const genButton = document.getElementById("generate-sim");
 const skinTones = ['light', 'medium light', 'medium dark', 'dark'];
 const hairColors = ['blonde', 'ginger', 'brown', 'black'];
 const eyeColors = ['light blue', 'dark blue', 'green', 'brown', 'grey'];
-const weights = ['medium weight', 'heavy weight']
-const nameApiUrl = 'https://randomuser.me/api/?nat=au,br,ca,ch,de,dk,es,fi,fr,gb,ie,mx,nl,nz,us'
+const weights = ['medium weight', 'heavy weight'];
+const personalityTraits = ['Sloppy/Neat', 'Shy/Outgoing', 'Lazy/Active', 'Serious/Playful', 'Grouchy/Nice'];
+const nameApiUrl = 'https://randomuser.me/api/?nat=au,br,ca,ch,de,dk,es,fi,fr,gb,ie,mx,nl,nz,us';
 
 let simInfo;
 clearPrevious();
@@ -61,17 +62,27 @@ async function generateSim() {
 
   let name = document.createElement("h2");
   name.innerText = await getName();
-  infoContainer.append(name);
-  simInfo.append(infoContainer);
+  infoContainer.appendChild(name);
+  simInfo.appendChild(infoContainer);
 
   let appearance = generateAppearance();
   for (let i = 0; i < appearance.length; i++) {
     let node = document.createElement("p");
     node.innerText = appearance[i];
-    infoContainer.append(node);
+    infoContainer.appendChild(node);
   }
 
   let personality = setPersonality();
+  let personalitySectionTitle = document.createElement("h3");
+  personalitySectionTitle.innerText = 'Personality Values'
+  infoContainer.appendChild(personalitySectionTitle);
+  let personalityList = document.createElement("ul");
+  infoContainer.appendChild(personalityList);
+  for (let i = 0; i < personality.length; i++) {
+    let node = document.createElement("li");
+    node.innerText = `${personalityTraits[i]}: ${personality[i]}`;
+    personalityList.appendChild(node);
+  }
 }
 
 genButton.addEventListener("click", generateSim);
