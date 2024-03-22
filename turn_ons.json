@@ -1,0 +1,9 @@
+{"hair": ["black", "blond", "brown", "red", "gray", "facial hair"],
+ "clothing": ["swim wear", "underwear", "formal wear"],
+ "accessories": ["glasses", "hats", "jewelry"],
+ "makeup": ["makeup", "full face makeup"],
+ "fitness": ["fat", "fit"],
+ "smell": ["cologne", "stink"],
+ "life state": ["vampirism", "plantsimism", "zombiism", "robots"],
+ "skill": ["good at cooking", "good at cleaning", "creative", "athletic", "logical", "charismatic", "mechanical"],
+ "employment": ["unemployed", "hard worker"]}
