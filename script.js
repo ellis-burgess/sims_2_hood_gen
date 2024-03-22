@@ -54,34 +54,50 @@ function setPersonality() {
   return personality;
 }
 
+function createSimDisplay(parent) {
+  let appearanceContainer = document.createElement("section");
+  appearanceContainer.classList.add("appearance-info");
+  let appearanceTitle = document.createElement("h3");
+  appearanceTitle.innerText = "Appearance";
+  appearanceContainer.appendChild(appearanceTitle);
+  let appearanceList = document.createElement("ul");
+  appearanceContainer.appendChild(appearanceList);
+
+  let personalityContainer = document.createElement("section");
+  personalityContainer.classList.add("personality-info");
+  let personalityTitle = document.createElement("h3");
+  personalityTitle.innerText = "Personality";
+  personalityContainer.appendChild(personalityTitle);
+  let personalityList = document.createElement("ul");
+  personalityContainer.appendChild(personalityList);
+
+  parent.appendChild(appearanceContainer);
+  parent.appendChild(personalityContainer);
+
+  return [appearanceList, personalityList];
+}
+
 async function generateSim() {
   clearPrevious();
 
-  let infoContainer = document.createElement("div");
-  infoContainer.id = "generated-info";
-
   let name = document.createElement("h2");
   name.innerText = await getName();
-  infoContainer.appendChild(name);
-  simInfo.appendChild(infoContainer);
+  simInfo.appendChild(name);
+
+  let displayLists = createSimDisplay(simInfo);
 
   let appearance = generateAppearance();
   for (let i = 0; i < appearance.length; i++) {
-    let node = document.createElement("p");
+    let node = document.createElement("li");
     node.innerText = appearance[i];
-    infoContainer.appendChild(node);
+    displayLists[0].appendChild(node);
   }
 
   let personality = setPersonality();
-  let personalitySectionTitle = document.createElement("h3");
-  personalitySectionTitle.innerText = 'Personality Values'
-  infoContainer.appendChild(personalitySectionTitle);
-  let personalityList = document.createElement("ul");
-  infoContainer.appendChild(personalityList);
   for (let i = 0; i < personality.length; i++) {
     let node = document.createElement("li");
     node.innerText = `${personalityTraits[i]}: ${personality[i]}`;
-    personalityList.appendChild(node);
+    displayLists[1].appendChild(node);
   }
 }
 

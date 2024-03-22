@@ -9,6 +9,7 @@ A website for Sims 2 gamers to generate households for a new neighbourhood.
    - [x] ~Determine zodiac from personality~
      - This is a more complex task than initially thought, as the game's handling of a personality equally similar to two zodiac signs is unclear
    - [x] ~Determine aspiration from zodiac~
+   - [ ] Randomise turn-ons and turn-offs
  - [ ] Be able to generate a household of 1-6 sims
    - [ ] Ensure household has at least one adult (future: toggleable)
    - [ ] Assume relationships between sims (all children are offspring of adults; all household members are related)
