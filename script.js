@@ -1,4 +1,5 @@
 const genButton = document.getElementById("generate-sim");
+const resetButton = document.getElementById("clear-sims");
 const skinTones = ['light', 'medium light', 'medium dark', 'dark'];
 const hairColors = ['blonde', 'ginger', 'brown', 'black'];
 const eyeColors = ['light blue', 'dark blue', 'green', 'brown', 'grey'];
@@ -78,8 +79,6 @@ function createSimDisplay(parent) {
 }
 
 async function generateSim() {
-  clearPrevious();
-
   let name = document.createElement("h2");
   name.innerText = await getName();
   simInfo.appendChild(name);
@@ -102,3 +101,4 @@ async function generateSim() {
 }
 
 genButton.addEventListener("click", generateSim);
+resetButton.addEventListener("click", clearPrevious);
