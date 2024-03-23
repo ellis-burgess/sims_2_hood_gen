@@ -1,3 +1,7 @@
+const turn_ons = await fetch('./turn_ons.json');
+const turn_ons_data = await turn_ons.json();
+console.log(turn_ons_data);
+
 const genButton = document.getElementById("generate-sim");
 const resetButton = document.getElementById("clear-sims");
 const skinTones = ['light', 'medium light', 'medium dark', 'dark'];
@@ -55,27 +59,43 @@ function setPersonality() {
   return personality;
 }
 
-function createSimDisplay(parent) {
-  let appearanceContainer = document.createElement("section");
-  appearanceContainer.classList.add("appearance-info");
-  let appearanceTitle = document.createElement("h3");
-  appearanceTitle.innerText = "Appearance";
-  appearanceContainer.appendChild(appearanceTitle);
-  let appearanceList = document.createElement("ul");
-  appearanceContainer.appendChild(appearanceList);
+function setAttraction() {
 
-  let personalityContainer = document.createElement("section");
-  personalityContainer.classList.add("personality-info");
-  let personalityTitle = document.createElement("h3");
-  personalityTitle.innerText = "Personality";
-  personalityContainer.appendChild(personalityTitle);
-  let personalityList = document.createElement("ul");
-  personalityContainer.appendChild(personalityList);
+}
+
+function createSectionDisplay(title, className, subheadings = null) {
+  let container = document.createElement("section");
+  container.classList.add(className);
+  let containerTitle = document.createElement("h3");
+  containerTitle.innerText = title;
+  container.appendChild(containerTitle);
+  if (subheadings != null) {
+    for (let i = 0; i < subheadings.length; i++) {
+      let subList = document.createElement("ul");
+      subList.classList.add(subheadings[i].toLowerCase());
+      let subListTitle = document.createElement("h4");
+      subListTitle.innerText = subheadings[i];
+      container.appendChild(subListTitle);
+      container.appendChild(subList);
+    }
+  } else {
+    let list = document.createElement("ul");
+    container.appendChild(list)
+  }
+
+  return container;
+}
+
+function createSimDisplay(parent) {
+  let appearanceContainer = createSectionDisplay("Appearance", "appearance-info");
+  let personalityContainer = createSectionDisplay("Personality", "personality-info");
+  let attractionContainer = createSectionDisplay("Turn-Ons and Turn-Offs", "attraction-info", ["Turn-ons", "Turn-offs"]);
 
   parent.appendChild(appearanceContainer);
   parent.appendChild(personalityContainer);
+  parent.appendChild(attractionContainer);
 
-  return [appearanceList, personalityList];
+  return [appearanceContainer.getElementsByTagName('ul')[0], personalityContainer.getElementsByTagName('ul')[0]];
 }
 
 async function generateSim() {
