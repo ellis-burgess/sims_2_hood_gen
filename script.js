@@ -60,7 +60,33 @@ function setPersonality() {
 }
 
 function setAttraction() {
+  // Determine categories for turn-ons and turn-off
+  let turn_on_categories = [Math.floor(Math.random() * 4)];
+  while (turn_on_categories.length < 3) {
+    let cat = Math.floor(Math.random() * 4);
+    if (!turn_on_categories.includes(cat)) {
+      turn_on_categories.push(cat);
+    }
+  }
 
+  let selections = [];
+
+  for (const cat of turn_on_categories) {
+    let options = turn_ons_data[Object.keys(turn_ons_data)[cat]];
+    let option_type = "";
+    let selection = ""
+    if (options instanceof Array) {
+      option_type = "array";
+      selection = options[Math.floor(Math.random() * options.length)];
+    } else {
+      option_type = "object";
+      let option_keys = Object.keys(options);
+      selection = options[option_keys[Math.floor(Math.random() * option_keys.length)]];
+      selection = selection[Math.floor(Math.random() * selection.length)];
+    }
+    selections.push(selection)
+  }
+  return selections;
 }
 
 function createSectionDisplay(title, className, subheadings = null) {
@@ -118,6 +144,8 @@ async function generateSim() {
     node.innerText = `${personalityTraits[i]}: ${personality[i]}`;
     displayLists[1].appendChild(node);
   }
+
+  setAttraction();
 }
 
 genButton.addEventListener("click", generateSim);

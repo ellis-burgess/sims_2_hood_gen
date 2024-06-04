@@ -1,10 +1,10 @@
 {
   "appearance": {
-    "hair": ["black", "blond", "brown", "red", "gray", "facial hair"],
+    "hair": ["black hair", "blond hair", "brown hair", "red hair", "gray hair", "facial hair"],
     "fitness": ["fat", "fit"]
   },
   "style": {
-    "clothing": ["swim wear", "underwear", "formal wear"],
+    "clothing": ["swimwear", "underwear", "formal wear"],
     "accessories": ["glasses", "hats", "jewelry"],
     "makeup": ["makeup", "full face makeup"],
     "smell": ["cologne", "stink"]  
