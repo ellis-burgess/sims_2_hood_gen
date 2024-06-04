@@ -8,7 +8,10 @@ A website for Sims 2 gamers to generate households for a new neighbourhood.
    - [x] Randomise personality (50 points spent across 5 traits, max 10 per trait)
    - [x] ~Determine zodiac from personality~
      - This is a more complex task than initially thought, as the game's handling of a personality equally similar to two zodiac signs is unclear
+     - Potential workaround: include a random zodiac for users who use the RPC feature of decoupling personality and zodiac?
    - [x] ~Determine aspiration from zodiac~
+     - May add a random aspiration generator, although it isn't how I personally determine aspiration.
+     - If random zodiac is added, may reintroduce this feature
    - [ ] Randomise turn-ons and turn-offs
  - [ ] Be able to generate a household of 1-6 sims
    - [ ] Ensure household has at least one adult (future: toggleable)
