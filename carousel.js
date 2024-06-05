@@ -15,7 +15,7 @@ const setSlidePosition = (slide, index) => {
 
 const addDot = (slide, index) => {
   if (dots.length > index) {
-    continue;
+    return;
   }
   let newDot = document.createElement("button");
   newDot.classList.add("carousel__indicator");
@@ -42,11 +42,8 @@ prevButton.addEventListener('click', e => {
   if (!prevDot) {
     prevDot = dotsNav.lastElementChild;
   }
-  console.log(prevSlide);
-  console.log(prevDot);
   const amountToMove = prevSlide.style.left;
   // move to the next slide
-  console.log(amountToMove);
   track.style.transform = 'translateX(-' + amountToMove + ')';
   currentSlide.classList.remove('current-slide');
   prevSlide.classList.add('current-slide');
@@ -69,7 +66,6 @@ nextButton.addEventListener('click', e => {
   }
   const amountToMove = nextSlide.style.left;
   // move to the next slide
-  console.log(amountToMove);
   track.style.transform = 'translateX(-' + amountToMove + ')';
   currentSlide.classList.remove('current-slide');
   nextSlide.classList.add('current-slide');
@@ -86,7 +82,6 @@ dots.forEach(function(dot) {
     let nextDot = e.target;
         
     if (currentDot == nextDot) {
-      console.log("target is current pos");
       return 0;
     }
     
@@ -95,7 +90,6 @@ dots.forEach(function(dot) {
     
     const amountToMove = nextSlide.style.left;
     // move to the next slide
-    console.log(amountToMove);
     track.style.transform = 'translateX(-' + amountToMove + ')';
     currentSlide.classList.remove('current-slide');
     nextSlide.classList.add('current-slide');
