@@ -4,14 +4,18 @@ const turnOnsData = await turnOns.json();
 console.log(turnOnsData);
 
 // API URL
-const nameApiUrl = 'https://randomuser.me/api/?nat=au,br,ca,ch,de,dk,es,fi,fr,gb,ie,mx,nl,nz,us';
+const nameApiUrl =
+  'https://randomuser.me/api/?nat=au,br,ca,ch,de,dk,es,fi,fr,gb,ie,mx,nl,nz,us';
 
 // Sim variables
 const skinTones = ['light', 'medium light', 'medium dark', 'dark'];
 const hairColors = ['blonde', 'ginger', 'brown', 'black'];
 const eyeColors = ['light blue', 'dark blue', 'green', 'brown', 'grey'];
 const weights = ['medium weight', 'heavy weight'];
-const personalityTraits = ['Sloppy/Neat', 'Shy/Outgoing', 'Lazy/Active', 'Serious/Playful', 'Grouchy/Nice'];
+const personalityTraits = [
+  'Sloppy/Neat', 'Shy/Outgoing', 'Lazy/Active', 'Serious/Playful',
+  'Grouchy/Nice'
+];
 
 // DOM Elements
 const genButton = document.getElementById("generate-sim");
@@ -65,7 +69,11 @@ function setPersonality() {
     let r2 = 0;
     let strength = Math.floor(Math.random() * 3) + 1
 
-    while (r1 == r2 || personality[r1] < strength || personality[r2] > (10 - strength)) {
+    while (
+      r1 == r2 ||
+      personality[r1] < strength ||
+      personality[r2] > (10 - strength)
+    ) {
       r1 = Math.floor(Math.random() * 5);
       r2 = Math.floor(Math.random() * 5);  
     }
@@ -103,7 +111,8 @@ function setAttraction() {
       selection = options[Math.floor(Math.random() * options.length)];
     } else {
       let optionKeys = Object.keys(options);
-      selection = options[optionKeys[Math.floor(Math.random() * optionKeys.length)]];
+      selection =
+        options[optionKeys[Math.floor(Math.random() * optionKeys.length)]];
       selection = selection[Math.floor(Math.random() * selection.length)];
     }
     selections.push(selection);
