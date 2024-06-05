@@ -78,3 +78,28 @@ nextButton.addEventListener('click', e => {
 })
 
 // when I click nav indicators, move to that slide
+
+dots.forEach(function(dot) {
+  dot.addEventListener("click", e => {
+    // on click event
+    let currentDot = dotsNav.querySelector('.current-slide');
+    let nextDot = e.target;
+        
+    if (currentDot == nextDot) {
+      console.log("target is current pos");
+      return 0;
+    }
+    
+    let currentSlide = track.querySelector('.current-slide');
+    let nextSlide = slides[dots.indexOf(nextDot)];
+    
+    const amountToMove = nextSlide.style.left;
+    // move to the next slide
+    console.log(amountToMove);
+    track.style.transform = 'translateX(-' + amountToMove + ')';
+    currentSlide.classList.remove('current-slide');
+    nextSlide.classList.add('current-slide');
+    currentDot.classList.remove('current-slide');
+    nextDot.classList.add('current-slide');
+  })
+})
