@@ -21,3 +21,7 @@ A website for Sims 2 gamers to generate households for a new neighbourhood.
  - [ ] Be able to generate 1-6 households independently
    - [ ] Instead of generating a random number of households, let user select number of households
  - [ ] Be able to download information as a text file
+
+[[icon source](https://www.iconfinder.com/iconsets/geomicons)]
+
+Carousel created following [[Kevin Powell's tutorial]](https://www.youtube.com/watch?v=VYsVOamdB0g)

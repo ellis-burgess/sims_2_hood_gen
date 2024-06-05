@@ -10,6 +10,25 @@
 <body>
   <h1>Sims 2 Hood Generation</h1>
   <button id="generate-sim">Generate Sim</button>
-  <button id="clear-sims">Clear Sims</button>
+  <div class="carousel">
+    <button class="carousel__button carousel__button--left">
+      <img src="img/chevron_left.svg" alt="left button">
+    </button>
+    <div class="carousel__track-container">
+      <ul class="carousel__track">
+        <li class="carousel__slide"><img class="carousel__image" src="https://picsum.photos/600" alt=""></li>
+        <li class="carousel__slide"><img class="carousel__image" src="https://picsum.photos/600" alt=""></li>
+        <li class="carousel__slide"><img class="carousel__image" src="https://picsum.photos/600" alt=""></li>
+      </ul>
+    </div>
+    <button class="carousel__button carousel__button--right">
+      <img src="img/chevron_right.svg" alt="right button">
+    </button>
+    <div class="carousel__nav">
+      <button class="carousel__indicator current-slide"></button>
+      <button class="carousel__indicator"></button>
+      <button class="carousel__indicator"></button>
+    </div>
+  </div>
 </body>
 </html>
