@@ -16,6 +16,25 @@ const personalityTraits = ['Sloppy/Neat', 'Shy/Outgoing', 'Lazy/Active', 'Seriou
 // DOM Elements
 const genButton = document.getElementById("generate-sim");
 
+// Sim class
+
+class Sim {
+  constructor(name, appearance, personality, attractions) {
+    this.firstName = name['firstName'];
+    this.surname = name['secondName'];
+    this.gender = name['gender'];
+
+    this.skintone = appearance['skin'];
+    this.hairColor = appearance['hairColor'];
+    this.eyeColor = appearance['eyeColor'];
+    this.weight = appearance['weight'];
+
+    this.personality = personality;
+
+    this.attractions = attractions;
+  }
+}
+
 // Generate name using API
 async function getName() {
   const response = await fetch(nameApiUrl);
@@ -34,7 +53,7 @@ function setAppearance() {
   let eye = eyeColors[Math.floor(Math.random() * 5)];
   let weight = weights[Math.floor(Math.random() * 2)];
 
-  return {'skin': skin, 'hair': hair, 'eyeColor': eye, 'weight': weight};
+  return {'skin': skin, 'hairColor': hair, 'eyeColor': eye, 'weight': weight};
 }
 
 // Generate personality
@@ -95,10 +114,12 @@ function setAttraction() {
 
 
 async function generateSim() {
-  console.log(await getName());
-  console.log(setAppearance());
-  console.log(setPersonality());
-  console.log(setAttraction());
+  let name = (await getName());
+  let appearance = (setAppearance());
+  let personality = (setPersonality());
+  let attraction = (setAttraction());
+  let newSim = new Sim(name, appearance, personality, attraction);
+  console.log(newSim);
 }
 
 genButton.addEventListener("click", generateSim);
