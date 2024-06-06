@@ -19,9 +19,12 @@ const personalityTraits = [
 
 // DOM Elements
 const genButton = document.getElementById("generate-sim");
+const track = document.querySelector(".carousel__contents");
+
+// Store generated sims
+let simArray = [];
 
 // Sim class
-
 class Sim {
   constructor(name, appearance, personality, attractions) {
     this.firstName = name['firstName'];
@@ -121,6 +124,46 @@ function setAttraction() {
   return {'turnOns': [selections[0], selections[1]], 'turnOffs': selections[2]};
 }
 
+function addSimToCarousel(newSim) {
+  const parent = document.createElement('li');
+  parent.classList.add('carousel__item');
+  parent.innerHTML = `
+          <div class="carousel__card">
+            <h2>${newSim.firstName} ${newSim.surname} (${newSim.gender})</h1>
+            <section class="appearance-section">
+              <h3 class="appearance-header">Basic Details</h3>
+              <ul class="appearance">
+                <li class="skintone">${newSim.skintone}</li>
+                <li class="hair-color">${newSim.hairColor}</li>
+                <li class="eyecolor">${newSim.eyeColor}</li>
+                <li class="weight">${newSim.weight}</li>
+              </ul>  
+            </section>
+            <section class="personality-section">
+              <h3 class="personality-header">Personality</h3>
+              <ul class="personality">
+              ${personalityTraits.map(
+                trait => `<li>${trait}: ${newSim.personality[trait]}</li>`)
+                .join('')}
+              </ul>  
+            </section>
+            <section class="attraction-section">
+              <h3 class="attractions-header">Turn Ons and Turn Offs</h3>
+              <ul class="turn-ons">
+                ${newSim.attractions['turnOns'].map(
+                  turnOn => `<li>${turnOn}</li>`).join('')
+                }
+              </ul>
+              <ul class="turn-offs">
+                <li>${newSim.attractions['turnOffs']}</li>
+              </ul>
+            </section>
+          </div>
+        </li>
+`
+
+track.appendChild(parent);
+}
 
 async function generateSim() {
   let name = (await getName());
@@ -129,6 +172,8 @@ async function generateSim() {
   let attraction = (setAttraction());
   let newSim = new Sim(name, appearance, personality, attraction);
   console.log(newSim);
+  simArray.push(newSim);
+  addSimToCarousel(newSim);
 }
 
 genButton.addEventListener("click", generateSim);
