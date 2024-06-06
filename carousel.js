@@ -30,7 +30,9 @@ const addDot = (slide, index) => {
 
 slides.forEach(setSlidePosition);
 slides.forEach(addDot);
-dots.forEach(addEventListener('click', jumpToDot));
+
+console.log(dots);
+dots.forEach(function (dot) {dot.addEventListener('click', jumpToDot)});
 
 nextButton.addEventListener('click', slideOne);
 prevButton.addEventListener('click', slideOne);
