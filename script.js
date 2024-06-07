@@ -152,11 +152,13 @@ function createSimDisplay(newSim) {
             <section class="attraction-section">
               <h3 class="attractions-header">Turn Ons and Turn Offs</h3>
               <ul class="turn-ons">
+                <h4>Turn Ons</h4>
                 ${newSim.attractions['turnOns'].map(
                   turnOn => `<li>${turnOn}</li>`).join('')
                 }
               </ul>
               <ul class="turn-offs">
+                <h4>Turn Off</h4>
                 <li>${newSim.attractions['turnOffs']}</li>
               </ul>
             </section>
