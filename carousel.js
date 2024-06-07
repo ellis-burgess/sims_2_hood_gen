@@ -30,8 +30,6 @@ const addDot = (slide, index) => {
 
 slides.forEach(setSlidePosition);
 slides.forEach(addDot);
-
-console.log(dots);
 dots.forEach(function (dot) {dot.addEventListener('click', jumpToDot)});
 
 nextButton.addEventListener('click', slideOne);
@@ -78,4 +76,28 @@ function moveSlides(currentSlide, currentDot, nextSlide, nextDot) {
   
   nextSlide.classList.add('current-slide');
   nextDot.classList.add('current-slide');
+}
+
+export default function addCardToCarousel(simDisplay) {
+  track.appendChild(simDisplay);
+  if (slides[0].classList.contains('default')) {
+    track.removeChild(slides[0]);
+    slides.shift();
+  }
+  slides.push(track.lastElementChild);
+  if (slides.length == 1) {
+    slides[0].classList.add('current-slide');
+  }
+
+  slides.forEach(setSlidePosition);
+  console.log(slides)
+  slides.forEach(addDot);
+  dots.forEach(function (dot) {dot.addEventListener('click', jumpToDot)});
+
+  if (slides.length > 1) {
+    moveSlides(track.querySelector('.current-slide'),
+    dotsNav.querySelector('.current-slide'),
+    slides[slides.length - 1],
+    dots[dots.length - 1]);
+  }
 }

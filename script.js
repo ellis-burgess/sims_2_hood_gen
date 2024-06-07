@@ -1,3 +1,5 @@
+import addCardToCarousel from './carousel.js';
+
 // Import turn ons and turn offs from json file
 const turnOns = await fetch('./turn_ons.json');
 const turnOnsData = await turnOns.json();
@@ -124,7 +126,7 @@ function setAttraction() {
   return {'turnOns': [selections[0], selections[1]], 'turnOffs': selections[2]};
 }
 
-function addSimToCarousel(newSim) {
+function createSimDisplay(newSim) {
   const parent = document.createElement('li');
   parent.classList.add('carousel__item');
   parent.innerHTML = `
@@ -161,8 +163,7 @@ function addSimToCarousel(newSim) {
           </div>
         </li>
 `
-
-track.appendChild(parent);
+return parent;
 }
 
 async function generateSim() {
@@ -173,7 +174,7 @@ async function generateSim() {
   let newSim = new Sim(name, appearance, personality, attraction);
   console.log(newSim);
   simArray.push(newSim);
-  addSimToCarousel(newSim);
+  addCardToCarousel(createSimDisplay(newSim));
 }
 
 genButton.addEventListener("click", generateSim);
