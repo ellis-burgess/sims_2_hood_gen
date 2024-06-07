@@ -1,6 +1,6 @@
 {
   "appearance": {
-    "hair": ["black hair", "blond hair", "brown hair", "red hair", "gray hair", "facial hair"],
+    "hair": ["black hair", "blond hair", "brown hair", "red hair", "gray hair", "facial hair", "custom hair"],
     "fitness": ["fat", "fit"]
   },
   "style": {
@@ -13,5 +13,5 @@
     "skill": ["good at cooking", "good at cleaning", "creative", "athletic", "logical", "charismatic", "mechanical"],
     "employment": ["unemployed", "hard worker"]  
   },
-  "life state": ["vampirism", "plantsimism", "zombiism", "robots"]
+  "life state": ["vampirism", "plantsimism", "zombiism", "robots", "witch", "werewolf"]
 }
