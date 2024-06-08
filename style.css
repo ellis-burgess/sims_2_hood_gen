@@ -1,3 +1,16 @@
+@font-face {
+  font-family: 'tubularregular';
+  src: url('./font_files/Tubular\ Regular.ttf') format('ttf'),
+       url('./font_files/tubular_regular-webfont.woff2') format('woff2'),
+       url('./font_files/tubular_regular-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  font-family: 'tubularregular';
+}
+
 body {
   height: 100vh;
   display: flex;
