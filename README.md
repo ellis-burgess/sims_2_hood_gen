@@ -2,7 +2,7 @@
 A website for Sims 2 gamers to generate households for a new neighbourhood.
 
 ## To Do
- - [ ] Be able to generate a single adult sim
+ - [x] Be able to generate a single adult sim
    - [x] Randomise skin, eye, and hair colour
    - [x] Randomise name, gender, and weight
    - [x] Randomise personality (50 points spent across 5 traits, max 10 per trait)
@@ -12,7 +12,7 @@ A website for Sims 2 gamers to generate households for a new neighbourhood.
    - [x] ~Determine aspiration from zodiac~
      - May add a random aspiration generator, although it isn't how I personally determine aspiration.
      - If random zodiac is added, may reintroduce this feature
-   - [ ] Randomise turn-ons and turn-offs
+   - [x] Randomise turn-ons and turn-offs
  - [ ] Be able to generate a household of 1-6 sims
    - [ ] Ensure household has at least one adult (future: toggleable)
    - [ ] Assume relationships between sims (all children are offspring of adults; all household members are related)
@@ -22,6 +22,7 @@ A website for Sims 2 gamers to generate households for a new neighbourhood.
    - [ ] Instead of generating a random number of households, let user select number of households
  - [ ] Be able to download information as a text file
 
-[[icon source](https://www.iconfinder.com/iconsets/geomicons)]
+[[Chevron icon source](https://www.iconfinder.com/iconsets/geomicons)]
+All other icons from The Sims 2 files
 
-Carousel created following [[Kevin Powell's tutorial]](https://www.youtube.com/watch?v=VYsVOamdB0g)
+Carousel inspired by [Kevin Powell's tutorial](https://www.youtube.com/watch?v=VYsVOamdB0g)
