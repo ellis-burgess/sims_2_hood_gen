@@ -79,6 +79,26 @@ h1 {
   right: -40px;
 }
 
+.attraction-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  text-align: center;
+}
+
+.attraction-section > div > ul {
+  display: flex;
+  flex-flow: row;
+  padding: 0;
+  border: 0;
+}
+
+.attraction-section > div > ul > li {
+  list-style-type: none;
+  padding: 0.4em;
+  margin: 0;
+}
+
 .carousel__nav {
   min-height: 15px;
   width: 100%;

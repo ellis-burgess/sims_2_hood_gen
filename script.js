@@ -120,15 +120,31 @@ function setAttraction() {
         options[optionKeys[Math.floor(Math.random() * optionKeys.length)]];
       selection = selection[Math.floor(Math.random() * selection.length)];
     }
-    selections.push(selection);
+    selections.push([turnOnKeys[cat], selection]);
   }
 
   return {'turnOns': [selections[0], selections[1]], 'turnOffs': selections[2]};
 }
 
+function get_img(obj, folder) {
+  let imgs = [];
+  if (obj[0] instanceof Array) {
+    for (let i of obj) {
+      console.log(i);
+      imgs.push(`img/${folder}/${i[0]}/${i[1]}.png`);
+    }
+  } else {
+    return `img/${folder}/${obj[0]}/${obj[1]}.png`
+  }
+  console.log(imgs);
+  return imgs
+}
+
 function createSimDisplay(newSim) {
   const parent = document.createElement('li');
   parent.classList.add('carousel__item');
+  let turnOnImgs = get_img(newSim['attractions']['turnOns'], 'attractions');
+  let turnOffImg = get_img(newSim['attractions']['turnOffs'], 'attractions');
   parent.innerHTML = `
           <div class="carousel__card">
             <h2>${newSim.firstName} ${newSim.surname} (${newSim.gender})</h1>
@@ -150,17 +166,24 @@ function createSimDisplay(newSim) {
               </ul>  
             </section>
             <section class="attraction-section">
-              <h3 class="attractions-header">Turn Ons and Turn Offs</h3>
-              <ul class="turn-ons">
-                <h4>Turn Ons</h4>
-                ${newSim.attractions['turnOns'].map(
-                  turnOn => `<li>${turnOn}</li>`).join('')
-                }
-              </ul>
-              <ul class="turn-offs">
-                <h4>Turn Off</h4>
-                <li>${newSim.attractions['turnOffs']}</li>
-              </ul>
+              <div>
+                <h3>Turn Ons</h3>
+                <ul class="turn-ons">
+                  ${newSim.attractions['turnOns'].map((turnOn, idx) => {
+                    let img_src = turnOnImgs[idx];
+                    return `<li><img src="${img_src}" alt="${turnOn}"></li>`;
+                  }).join('')}
+                </ul>
+              </div>
+              <div>
+                <h3>Turn Off</h3>
+                <ul class="turn-offs">
+                  <li>
+                    <img src="${turnOffImg}"
+                        alt="${newSim.attractions['turnOffs']}">
+                  </li>
+                </ul>
+              </div>
             </section>
           </div>
         </li>
