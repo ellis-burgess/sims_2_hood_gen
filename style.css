@@ -9,6 +9,7 @@
 
 * {
   font-family: 'tubularregular';
+  box-sizing: border-box;
 }
 
 body {
@@ -96,8 +97,11 @@ h1 {
   width: 100%;
   height: 100%;
   margin: 0;
-  padding: 0;
+  padding: 0em 0.4em;
   position: absolute;
+  overflow-y: scroll;
+  border: 0.4em solid black;
+  border-radius: 20px;
 }
 
 .carousel__image {
