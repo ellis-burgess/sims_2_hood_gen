@@ -1,3 +1,10 @@
+:root {
+  --text-color: #061c47;
+  --background-color: #6494ed;
+  --ui-color: hsla(220, 70%, 25%, 1);
+  --inactive-nav-color: hsla(220, 70%, 25%, 0.3);
+}
+
 @font-face {
   font-family: 'tubularregular';
   src: url('./font_files/Tubular\ Regular.ttf') format('ttf'),
@@ -10,6 +17,7 @@
 * {
   font-family: 'tubularregular';
   box-sizing: border-box;
+  color: var(--text-color);
 }
 
 body {
@@ -17,6 +25,7 @@ body {
   display: flex;
   flex-flow: column;
   align-items: center;
+  background-color: var(--background-color);
 }
 
 h1 {
@@ -84,13 +93,13 @@ h1 {
   height: 15px;
   aspect-ratio: 1/1;
   border-radius: 50%;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: var(--inactive-nav-color);
   margin: 0 5%;
   cursor: pointer;
 }
 
 .carousel__indicator.current-slide {
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: var(--ui-color);
 }
 
 .carousel__item {
@@ -100,7 +109,7 @@ h1 {
   padding: 0em 0.4em;
   position: absolute;
   overflow-y: scroll;
-  border: 0.4em solid black;
+  border: 0.4em solid var(--ui-color);
   border-radius: 20px;
 }
 
