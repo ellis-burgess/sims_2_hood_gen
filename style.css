@@ -147,9 +147,16 @@ button {
   display: flex;
   flex-flow: row nowrap;
   justify-content: center;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.carousel__nav::-webkit-scrollbar {
+  display: none;
 }
 
 .carousel__indicator {
+  flex: 0 0 auto;
   border: none;
   height: 15px;
   width: 15px;
