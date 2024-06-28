@@ -9,7 +9,7 @@ const dotsNav = document.querySelector('.carousel__nav');
 const dots = []
 console.log(dots);
 
-const slideWidth = slides[0].getBoundingClientRect().width;
+let slideWidth = slides[0].getBoundingClientRect().width;
 
 const setSlidePosition = (slide, index) => {
   slide.style.left = slideWidth * index + 'px';
@@ -34,6 +34,12 @@ dots.forEach(function (dot) {dot.addEventListener('click', jumpToDot)});
 
 nextButton.addEventListener('click', slideOne);
 prevButton.addEventListener('click', slideOne);
+
+window.addEventListener('resize', () => {
+  slides.forEach(setSlidePosition);
+  slideWidth = slides[0].getBoundingClientRect().width;
+  jumpToDot({target: dotsNav.querySelector('.current-slide')});
+});
 
 function slideOne(e) {
   let currentSlide = track.querySelector('.current-slide');
