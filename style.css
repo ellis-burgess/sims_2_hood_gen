@@ -1,8 +1,8 @@
 :root {
   --text-color: #061c47;
-  --background-color: #6494ed;
-  --ui-color: hsla(220, 70%, 25%, 1);
-  --inactive-nav-color: hsla(220, 70%, 25%, 0.3);
+  --background-color: #f0f4fc;
+  --ui-color: #34568b;
+  --inactive-nav-color: #b0c4de;
 }
 
 @font-face {
@@ -15,9 +15,11 @@
 }
 
 * {
-  font-family: 'tubularregular';
+  font-family: 'tubularregular', sans-serif;
   box-sizing: border-box;
   color: var(--text-color);
+  margin: 0;
+  padding: 0;
 }
 
 body {
@@ -28,17 +30,37 @@ body {
   background-color: var(--background-color);
 }
 
-h1 {
+h1, h2, h3 {
   text-align: center;
+  margin-bottom: 1em;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.5rem;
 }
 
 button {
   background: none;
   border: 2px solid var(--ui-color);
   border-radius: 20px;
-  background:hsla(220, 70%, 25%, 0.1);
-  font-size: 1.5em;
+  background: rgba(52, 86, 139, 0.1);
+  font-size: 1.5rem;
   cursor: pointer;
+  padding: 0.5em 1em;
+  transition: background 0.3s, color 0.3s;
+}
+
+#generate-sim {
+  margin: 0.5em;
+}
+
+#generate-sim:hover {
+  background: var(--ui-color);
+  color: white;
 }
 
 .carousel {
@@ -49,7 +71,10 @@ button {
   position: relative;
   display: flex;
   flex-flow: column;
-  padding: 10px 10px;
+  padding: 10px;
+  background: rgba(52, 86, 139, 0.05);
+  border: 0.2em solid var(--ui-color);
+  border-radius: 20px;
 }
 
 .carousel__container {
@@ -69,7 +94,7 @@ button {
 }
 
 .carousel__chevron {
-  width: 12px;
+  width: 25px;
 }
 
 .carousel__button {
@@ -78,14 +103,15 @@ button {
   cursor: pointer;
   top: 50%;
   position: absolute;
+  transform: translateY(-50%);
 }
 
 .carousel__button-left {
-  left: -40px;
+  left: -55px;
 }
 
 .carousel__button-right {
-  right: -40px;
+  right: -55px;
 }
 
 .attraction-section, .appearance {
@@ -95,7 +121,8 @@ button {
   text-align: center;
 }
 
-.attraction-section > div > ul {
+.attraction-section > div > ul,
+.appearance {
   display: flex;
   flex-flow: row;
   padding: 0;
@@ -125,11 +152,13 @@ button {
 .carousel__indicator {
   border: none;
   height: 15px;
-  aspect-ratio: 1/1;
+  width: 15px;
   border-radius: 50%;
+  padding: 0;
   background-color: var(--inactive-nav-color);
   margin: 0 5%;
   cursor: pointer;
+  transition: background 0.3s;
 }
 
 .carousel__indicator.current-slide {
@@ -140,11 +169,11 @@ button {
   width: 100%;
   height: 100%;
   margin: 0;
-  padding: 0em 0.4em;
+  padding: 0.4em;
   position: absolute;
   overflow-y: scroll;
-  border: 0.4em solid var(--ui-color);
-  background:hsla(220, 70%, 25%, 0.1);
+  border: 0.2em solid var(--ui-color);
+  background: rgba(52, 86, 139, 0.1);
   border-radius: 20px;
 }
 
@@ -153,18 +182,6 @@ button {
   display: flex;
   flex-flow: column;
   justify-content: space-around;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  text-align: center;
-}
-
-h2 {
-  font-size: 2rem;
-}
-
-h3 {
-  font-size: 1.5em;
 }
 
 .carousel__image {
