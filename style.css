@@ -178,6 +178,9 @@ button {
     width: 10px;
     height: 10px;
   }
+}
+
+@media (max-height: 730px) {
   .carousel__card {
     justify-content: flex-start !important;
   }
