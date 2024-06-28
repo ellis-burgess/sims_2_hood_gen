@@ -178,9 +178,20 @@ function createSimDisplay(newSim) {
               <h3 class="personality-header">Personality</h3>
               <ul class="personality">
               ${personalityTraits.map(
-                trait => `<li>${trait}: ${newSim.personality[trait]}</li>`)
-                .join('')}
-              </ul>  
+                trait => {
+                  let traitParts = trait.split("/");
+                  let traitValue = newSim.personality[trait];
+                  let spanElements = Array.from({length: 10}, (_, index) =>
+                    `<span class="dot-indicator${index < traitValue ? ' dot-active' : ''}"></span>`
+                ).join('');
+
+                  return `<li>
+                  <span class="trait-left">${traitParts[0]}</span>
+                  <span class="trait-dots">${spanElements}</span>
+                  <span class="trait-right">${traitParts[1]}</span>
+                  </li>`}
+                ).join('')}
+              </ul>
             </section>
             <section class="attraction-section">
               <div>

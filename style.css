@@ -155,6 +155,33 @@ button {
   display: none;
 }
 
+.dot-indicator {
+  display: inline-block;
+  margin: 1px;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: var(--inactive-nav-color);
+}
+
+.dot-active {
+  background-color: var(--ui-color);
+}
+
+.personality > li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.trait-dots {
+  flex: 2;
+}
+
+.trait-left, .trait-right {
+  flex: 1;
+}
+
 .carousel__indicator {
   flex: 0 0 auto;
   border: none;
