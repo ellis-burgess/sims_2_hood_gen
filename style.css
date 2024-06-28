@@ -32,6 +32,15 @@ h1 {
   text-align: center;
 }
 
+button {
+  background: none;
+  border: 2px solid var(--ui-color);
+  border-radius: 20px;
+  background:hsla(220, 70%, 25%, 0.1);
+  font-size: 1.5em;
+  cursor: pointer;
+}
+
 .carousel {
   width: 500px;
   height: 100%;
@@ -135,7 +144,27 @@ h1 {
   position: absolute;
   overflow-y: scroll;
   border: 0.4em solid var(--ui-color);
+  background:hsla(220, 70%, 25%, 0.1);
   border-radius: 20px;
+}
+
+.carousel__card {
+  height: 100%;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-around;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  text-align: center;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.5em;
 }
 
 .carousel__image {
