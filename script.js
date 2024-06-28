@@ -147,14 +147,31 @@ function createSimDisplay(newSim) {
   let turnOffImg = get_img(newSim['attractions']['turnOffs'], 'attractions');
   parent.innerHTML = `
           <div class="carousel__card">
-            <h2>${newSim.firstName} ${newSim.surname} (${newSim.gender})</h1>
+            <h2>${newSim.firstName} ${newSim.surname}
+              <img src="img/${newSim.gender}.png" alt="${newSim.gender}">
+            </h1>
             <section class="appearance-section">
-              <h3 class="appearance-header">Basic Details</h3>
+              <h3 class="appearance-header">Appearance</h3>
               <ul class="appearance">
-                <li class="skintone">${newSim.skintone}</li>
-                <li class="hair-color">${newSim.hairColor}</li>
-                <li class="eyecolor">${newSim.eyeColor}</li>
-                <li class="weight">${newSim.weight}</li>
+                <li class="skintone">
+                  <img src="img/skin-colors/${newSim.skintone}.png",
+                    alt="${newSim.skintone} skin"
+                    title="${newSim.skintone} skin">
+                </li>
+                <li class="hair-color">
+                  <img src="img/hair-colors/${newSim.hairColor}.png",
+                    alt="${newSim.hairColor} hair"
+                    title="${newSim.hairColor} hair">
+                </li>
+                <li class="eyecolor">
+                  <img src="img/eye-colors/${newSim.eyeColor}.png",
+                    alt="${newSim.eyeColor} eyes"
+                    title="${newSim.eyeColor} eyes">
+                </li>
+                <li class="weight">
+                  <img src="img/${newSim.weight}.png"
+                    alt="${newSim.weight}" title="${newSim.weight}">
+                </li>
               </ul>  
             </section>
             <section class="personality-section">
@@ -171,7 +188,10 @@ function createSimDisplay(newSim) {
                 <ul class="turn-ons">
                   ${newSim.attractions['turnOns'].map((turnOn, idx) => {
                     let img_src = turnOnImgs[idx];
-                    return `<li><img src="${img_src}" alt="${turnOn}"></li>`;
+                    return `<li><img src="${img_src}"
+                      alt="${Array.isArray(turnOn) ? turnOn[1] : turnOn}"
+                      title="${Array.isArray(turnOn) ? turnOn[1] : turnOn}">
+                    </li>`;
                   }).join('')}
                 </ul>
               </div>
@@ -180,7 +200,12 @@ function createSimDisplay(newSim) {
                 <ul class="turn-offs">
                   <li>
                     <img src="${turnOffImg}"
-                        alt="${newSim.attractions['turnOffs']}">
+                      alt="${Array.isArray(newSim.attractions['turnOffs'])
+                        ? newSim.attractions['turnOffs'][1]
+                        : newSim.attractions['turnOffs']}"
+                      title="${Array.isArray(newSim.attractions['turnOffs'])
+                        ? newSim.attractions['turnOffs'][1]
+                        : newSim.attractions['turnOffs']}">
                   </li>
                 </ul>
               </div>

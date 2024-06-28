@@ -79,7 +79,7 @@ h1 {
   right: -40px;
 }
 
-.attraction-section {
+.attraction-section, .appearance {
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -93,10 +93,15 @@ h1 {
   border: 0;
 }
 
-.attraction-section > div > ul > li {
+.attraction-section > div > ul > li, .appearance > li {
   list-style-type: none;
   padding: 0.4em;
   margin: 0;
+}
+
+.appearance > li > img {
+  height: 2em;
+  width: 2em;
 }
 
 .carousel__nav {
