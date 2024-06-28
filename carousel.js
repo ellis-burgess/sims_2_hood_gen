@@ -76,13 +76,22 @@ function moveSlides(currentSlide, currentDot, nextSlide, nextDot) {
   
   nextSlide.classList.add('current-slide');
   nextDot.classList.add('current-slide');
+
+  let dotIndex = Array.from(dotsNav.children).indexOf(nextDot);
+  if (!isElementInViewport(nextDot, dotsNav)) {
+      nextDot.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+  }
 }
 
-export default function addCardToCarousel(simDisplay) {
-  track.appendChild(simDisplay);
+export default function addCardToCarousel(newCard) {
+  track.appendChild(newCard);
   if (slides[0].classList.contains('default')) {
+    // remove placeholder slide present while carousel is empty
     track.removeChild(slides[0]);
     slides.shift();
+    dotsNav.removeChild(dots[0]);
+    dots.shift();
+    console.log(dots);
   }
   slides.push(track.lastElementChild);
   if (slides.length == 1) {
@@ -94,10 +103,29 @@ export default function addCardToCarousel(simDisplay) {
   slides.forEach(addDot);
   dots.forEach(function (dot) {dot.addEventListener('click', jumpToDot)});
 
+  if (dots.length > 8) {
+    dotsNav.style.justifyContent = 'flex-start';
+  }
+
   if (slides.length > 1) {
     moveSlides(track.querySelector('.current-slide'),
     dotsNav.querySelector('.current-slide'),
     slides[slides.length - 1],
     dots[dots.length - 1]);
   }
+}
+
+// if move to dot outside of viewport, scroll nav to display active dot
+
+function isElementInViewport(el, parent) {
+  let rect = el.getBoundingClientRect();
+  let parentRect = parent.getBoundingClientRect();
+  
+  let status = rect.top >= parentRect.top &&
+               rect.left >= parentRect.left &&
+               rect.bottom <= parentRect.bottom &&
+               rect.right <= parentRect.right;
+
+  console.log(status);
+  return status;
 }
