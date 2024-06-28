@@ -187,7 +187,7 @@ function createSimDisplay(newSim) {
 
                   return `<li>
                   <span class="trait-left">${traitParts[0]}</span>
-                  <span class="trait-dots">${spanElements}</span>
+                  <span class="trait-dots" title="${trait}: ${traitValue}">${spanElements}</span>
                   <span class="trait-right">${traitParts[1]}</span>
                   </li>`}
                 ).join('')}
