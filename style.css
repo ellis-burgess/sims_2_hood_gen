@@ -3,6 +3,7 @@
   --background-color: #f0f4fc;
   --ui-color: #34568b;
   --inactive-nav-color: #b0c4de;
+  overflow-x: hidden;
 }
 
 @font-face {
@@ -28,6 +29,7 @@ body {
   flex-flow: column;
   align-items: center;
   background-color: var(--background-color);
+  overflow-x: hidden;
 }
 
 h1, h2, h3 {
@@ -155,13 +157,27 @@ button {
   display: none;
 }
 
+.carousel__nav::before,
+.carousel__nav {
+  content: "";
+  -webkit-overflow-scrolling: touch; /* Smooth scrolling for touch devices */
+  scroll-snap-type: x mandatory; /* Optional: Snap scrolling for nav items */
+}
+
 .dot-indicator {
   display: inline-block;
   margin: 1px;
-  width: 10px;
-  height: 10px;
+  width: 15px;
+  height: 15px;
   border-radius: 50%;
   background-color: var(--inactive-nav-color);
+}
+
+@media (max-width: 480px) {
+  .dot-indicator {
+    width: 10px;
+    height: 10px;
+  }
 }
 
 .dot-active {
