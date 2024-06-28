@@ -221,7 +221,15 @@ button {
 
 .default {
   display: flex !important;
+  flex-flow: column;
   align-items: center;
+  justify-content: space-around;
+  font-size: 2em;
+}
+
+.default > p {
+  font-size: 0.8em;
+  text-align: center;
 }
 
 .carousel__image {
