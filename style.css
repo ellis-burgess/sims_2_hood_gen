@@ -178,6 +178,9 @@ button {
     width: 10px;
     height: 10px;
   }
+  .carousel__card {
+    justify-content: flex-start !important;
+  }
 }
 
 .dot-active {
@@ -257,4 +260,8 @@ button {
 
 .current-slide {
   display: block;
+}
+
+footer {
+  padding: 1em;
 }
