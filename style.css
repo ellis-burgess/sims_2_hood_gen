@@ -153,17 +153,6 @@ button {
   scrollbar-width: none;
 }
 
-.carousel__nav::-webkit-scrollbar {
-  display: none;
-}
-
-.carousel__nav::before,
-.carousel__nav {
-  content: "";
-  -webkit-overflow-scrolling: touch; /* Smooth scrolling for touch devices */
-  scroll-snap-type: x mandatory; /* Optional: Snap scrolling for nav items */
-}
-
 .dot-indicator {
   display: inline-block;
   margin: 1px;
@@ -229,9 +218,27 @@ button {
   padding: 0.4em;
   position: absolute;
   overflow-y: scroll;
+  scrollbar-width: none;
   border: 0.2em solid var(--ui-color);
   background: rgba(52, 86, 139, 0.1);
   border-radius: 20px;
+}
+
+.carousel__item::-webkit-scrollbar,
+.carousel__nav::-webkit-scrollbar
+ {
+  width: 0px;
+  height: 0px;
+  background: none;
+  display: none;
+}
+
+.carousel__item::before,
+.carousel__item,
+.carousel__nav::before,
+.carousel__nav {
+  content: "";
+  -webkit-overflow-scrolling: touch; /* Smooth scrolling for touch devices */
 }
 
 .carousel__card {
